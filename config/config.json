@@ -1,0 +1,16 @@
+{
+  "container": {
+    "App\\Psr\\Container\\ContainerInterface": {
+      "class": "App\\Core\\Container"
+    },
+    "App\\Service\\Test\\TestInterface": {
+      "class": "App\\Service\\Test\\ConcreteTest"
+    },
+    "App\\Service\\Crypto": {
+      "class": "App\\Service\\Crypto\\MD5Encryptor"
+    }
+  },
+  "database": {
+
+  }
+}
