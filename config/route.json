@@ -1,0 +1,14 @@
+{
+  "/": {
+    "controller": "App\\Controller\\MainController",
+    "action": "indexAction"
+  },
+  "/register": {
+    "controller": "App\\Controller\\RegisterController",
+    "action": "pageAction"
+  },
+  "NotFound": {
+    "controller": "App\\Controller\\MainController",
+    "action": "notFoundAction"
+  }
+}

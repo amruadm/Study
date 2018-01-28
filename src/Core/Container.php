@@ -29,12 +29,12 @@ class Container implements ContainerInterface
             if (isset($constructor)) {
                 $params = $constructor->getParameters();
                 foreach ($params as $param) {
-                    $args[] = $this->get($param->getType());
+                    $args[] = $this->get($param->getType()->getName());
                 }
             }
             return $classInfo->newInstanceArgs($args);
         }
-        throw new ContainerException();
+        throw new ContainerException($id . " does not exists");
     }
 
     /**
@@ -43,6 +43,6 @@ class Container implements ContainerInterface
      */
     public function has($id)
     {
-        return isset($this->container[$id]);
+        return array_key_exists($id, $this->container);
     }
 }

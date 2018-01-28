@@ -8,10 +8,8 @@ abstract class Controller
 {
     private $container;
 
-    public function setupContainer(ContainerInterface $container)
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
     }
-
-    public abstract function action();
 }

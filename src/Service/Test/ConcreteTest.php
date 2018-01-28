@@ -7,6 +7,6 @@ class ConcreteTest implements TestInterface
 
     public function run()
     {
-        echo "<br /> ite test!";
+        echo "<br /> its test!";
     }
 }

@@ -6,8 +6,8 @@
     "App\\Service\\Test\\TestInterface": {
       "class": "App\\Service\\Test\\ConcreteTest"
     },
-    "App\\Service\\Crypto": {
-      "class": "App\\Service\\Crypto\\MD5Encryptor"
+    "App\\Service\\Crypto\\PasswordEncryptorInterface": {
+      "class": "App\\Service\\Crypto\\SHA1Encryptor"
     }
   },
   "database": {

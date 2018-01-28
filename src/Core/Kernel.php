@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use App\Core\Exception\CoreException;
 use App\Psr\Container\ContainerInterface;
 
 class Kernel
@@ -17,6 +18,7 @@ class Kernel
      * PSR-0 Autoloader
      *
      * @param $className
+     * @throws CoreException
      */
     public static function autoloader($className)
     {
@@ -40,7 +42,7 @@ class Kernel
             require_once $fileName;
         }
         else {
-            die('Failed to load class ' . $className . '(' . $fileName . ')');
+            throw new CoreException('Failed to load class ' . $className . '(' . $fileName . ')');
         }
     }
 
@@ -49,13 +51,7 @@ class Kernel
      */
     public function run()
     {
-        //echo $_SERVER['REQUEST_URI'];
-        $paramsPos = strrpos($_SERVER['REQUEST_URI'], '?');
-        $routing = $_SERVER['REQUEST_URI'];
-        if ($paramsPos > -1)
-            $routing = substr($_SERVER['REQUEST_URI'], 0, $paramsPos);
-        ltrim($routing, '/');
-
-        echo $routing;
+        $router = new Router($this->container);
+        $router->route();
     }
 }
